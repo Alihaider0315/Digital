@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<body>
+    
+
+    <div id="clock">
+        <div id="time">00:00:00</div>
+        <button id="startstopbtn">Start</button>
+    </div>
+
+
+<script>
+    
+let interval;
+let autostart = false;
+
+function clock(){
+    const now = new Date();
+    let hours = now.getHours();
+    let min  = now.getMinutes();
+    let sec = now.getSeconds();
+    // Convert to 12-hour format and determine AM/PM
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+    hours = (hours % 12) || 12; // Convert 0 to 12 for 12-hour format
+    document.getElementById('time').textContent = `${hours}:${min}:${sec} ${amPm}`;
+}
+
+function Starclock(){
+if(autostart){
+    clearInterval(interval);
+    document.getElementById('startstopbtn').textContent = "Start";
+}
+else{
+    interval = setInterval(clock , 1000);
+    document.getElementById('startstopbtn').textContent = "Stop";
+}
+autostart = !autostart;
+}
+
+document.getElementById('startstopbtn').addEventListener('click', Starclock)
+
+
+</script>    
+</body>
+</html>

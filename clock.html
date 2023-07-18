@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+<body>
+    
+    <div class="clock">
+        <div id="time">00:00:00</div>
+        <button id="startstop">Start</button>
+    </div>
+
+    <script>
+     
+     let stoptime;
+     let autostart = false ;
+     
+     function startclock(){
+        
+        const now = new Date();
+        let hours = now.getDate();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+
+        const amPm = hours >= 12 ? "PM" : "AM";
+        hours = (hours % 12 ) || 12;
+        document.getElementById('time').textContent = `${hours}:${minutes}:${seconds} ${amPm}`;
+     }
+
+     function startStop(){
+        if(autostart){
+            clearInterval(stoptime);
+            document.getElementById('startstop').textContent = 'Start';
+            
+        } else {
+            stoptime = setInterval(startclock , 1000);
+            document.getElementById('startstop').textContent = "Stop";
+        }
+        autostart = !autostart;
+     }
+
+     document.getElementById('startstop').addEventListener('click' , startStop);
+
+    </script>
+
+</body>
+</html>

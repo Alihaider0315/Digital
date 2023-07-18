@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Digital Clock</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-600 to-blue-500 h-screen flex items-center">
+  <div class="container mx-auto px-4">
+    <div class="text-center">
+      <h1 class="text-4xl text-white font-bold mb-6">Beautiful Digital Clock</h1>
+      <div class="bg-white rounded-lg py-6 px-8 shadow-md">
+        <div class="flex items-center justify-center mb-6">
+          <div class="time-box">
+            <div class="text-3xl" id="hours">00</div>
+            <div class="text-sm text-gray-600">Hours</div>
+          </div>
+          <div class="time-box mx-4">
+            <div class="text-3xl" id="minutes">00</div>
+            <div class="text-sm text-gray-600">Minutes</div>
+          </div>
+          <div class="time-box">
+            <div class="text-3xl" id="seconds">00</div>
+            <div class="text-sm text-gray-600">Seconds</div>
+          </div>
+        </div>
+        <button id="startStopBtn" class="px-4 py-2 text-lg bg-blue-600 text-white rounded">Start</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Variables to keep track of the clock and interval
+    let intervalId;
+    let isRunning = false;
+
+    function updateTime() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
+      
+      // Convert to 12-hour format and determine AM/PM
+      const amPm = hours >= 12 ? 'PM' : 'AM';
+      hours = (hours % 12) || 12; // Convert 0 to 12 for 12-hour format
+      
+      document.getElementById('hours').textContent = hours;
+      document.getElementById('minutes').textContent = minutes;
+      document.getElementById('seconds').textContent = seconds;
+    }
+
+    function startStopClock() {
+      if (isRunning) {
+        // If the clock is running, stop the interval and change button text
+        clearInterval(intervalId);
+        document.getElementById('startStopBtn').textContent = 'Start';
+      } else {
+        // If the clock is not running, start the interval and change button text
+        intervalId = setInterval(updateTime, 1000);
+        document.getElementById('startStopBtn').textContent = 'Stop';
+      }
+      isRunning = !isRunning;
+    }
+
+    // Add click event listener to the startStopBtn
+    document.getElementById('startStopBtn').addEventListener('click', startStopClock);
+    
+  </script>
+</body>
+</html>
