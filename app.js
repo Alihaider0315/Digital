@@ -2,27 +2,21 @@ let stop;
 let startingclock = false;
 
 function mainClock(){
+    
     const recent = new Date();
+    const dayToday = recent.getDay();
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[dayToday];
     let watch_hours = recent.getHours();
     let watch_minut = recent.getMinutes();
     let watch_secon = recent.getSeconds();
     let watch_milse = String(recent.getMilliseconds()).padStart(3, '0').substring(0, 2);
     const amPm = watch_hours >= 12 ? "PM" : "AM";
     watch_hours = (watch_hours % 12) || 12 ;
-    document.getElementById('hours').textContent = `${watch_hours}:${watch_minut}:${watch_secon}:${String(watch_milse).padStart(2,'0')} ${amPm}`;
+    document.getElementById('hours').textContent = `${dayToday} ${watch_hours}:${watch_minut}:${watch_secon}:${String(watch_milse).padStart(2,'0')} ${amPm}`;
     
 }
 
-
-function daytoday(){
-    const current_day = new Date();
-    const dayToday = current_day.getDay();
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayOfWeek = daysOfWeek[dayToday];
-    document.getElementById('today').textContent = `${dayToday}`;
-    console.log(dayOfWeek);
-}
-daytoday();
 
 function startclock(){
     if(startingclock){
