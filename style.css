@@ -1,6 +1,5 @@
 *{
     color: white;
-    font-size: 20vh;;
 }
 div#hours {
     color: white;
@@ -8,5 +7,5 @@ div#hours {
 }
 
 #days{
-    color: white;
+   font-size: 10vh;
 }
