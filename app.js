@@ -9,6 +9,8 @@ function mainClock(){
     const dayOfWeek = daysOfWeek[dayToday];
     const todaydate = recent.getDate();
     const month = recent.getMonth();
+    const month_name = ['Janurary' , 'Feburary' , 'March' , 'April' , 'May' , 'June' , 'July' , 'August' , 'September' , 'October','November','December'];
+    const calendar = month_name[month];
     const year = recent.getFullYear();
     let watch_hours = recent.getHours();
     let watch_minut = recent.getMinutes();
@@ -18,7 +20,7 @@ function mainClock(){
     watch_hours = (watch_hours % 12) || 12 ;
     document.getElementById('hours').textContent = `${watch_hours}:${watch_minut}:${watch_secon} ${amPm}`;
     document.getElementById('days').textContent = `${dayOfWeek}`;
-    document.getElementById('date').textContent = `${todaydate}-${month}-${year}`;
+    document.getElementById('date').textContent = `${todaydate}-${calendar}-${year}`;
     
 }
 
