@@ -3,3 +3,7 @@ div#hours {
     font-size: 20vh;
     margin-top: 30vh;
 }
+.red-button {
+    background-color: red;
+    color: white;
+  }

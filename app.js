@@ -16,10 +16,12 @@ function startclock(){
     if(startingclock){
         clearInterval(stop);
         document.getElementById('startstop').textContent = "Start";
+        button.classList.remove("red-button");
     }
     else {
         stop = setInterval(mainClock , 1000);
         document.getElementById('startstop').textContent = "Stop";
+        button.classList.add("red-button");
     }
 
     startingclock = !startingclock;
