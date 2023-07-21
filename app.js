@@ -15,13 +15,14 @@ function mainClock(){
 
 
 function daytoday(){
-    const recent = new Date();
-    const dayToday = recent.getDay();
+    const current_day = new Date();
+    const dayToday = current_day.getDay();
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dayOfWeek = daysOfWeek[dayToday];
-    document.getElementById('today').textContent = `${dayOfWeek}`;
+    document.getElementById('today').textContent = `${dayToday}`;
     console.log(dayOfWeek);
 }
+daytoday();
 
 function startclock(){
     if(startingclock){
@@ -37,4 +38,3 @@ function startclock(){
 }
 
 document.getElementById('startstop').addEventListener('click' , startclock);
-document.getElementById('today').textContent = `${dayOfWeek}`;
