@@ -16,8 +16,8 @@ function mainClock(){
     const amPm = watch_hours >= 12 ? "PM" : "AM";
     watch_hours = (watch_hours % 12) || 12 ;
     document.getElementById('hours').textContent = `${watch_hours}:${watch_minut}:${watch_secon} ${amPm}`;
-    document.getElementById('days').textContent = `Today Is : ${dayOfWeek}`;
-    document.getElementById('date').textContent = `Today Is : ${todaydate} - ${month}`;
+    document.getElementById('days').textContent = `${dayOfWeek}`;
+    document.getElementById('date').textContent = `${todaydate}-${month}`;
     
 }
 
