@@ -5,11 +5,11 @@ function mainClock(){
     
     const recent = new Date();
     const dayToday = recent.getDay();
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const dayOfWeek = daysOfWeek[dayToday];
     const todaydate = recent.getDate();
     const month = recent.getMonth();
     const month_name = ['Janurary' , 'Feburary' , 'March' , 'April' , 'May' , 'June' , 'July' , 'August' , 'September' , 'October','November','December'];
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const dayOfWeek = daysOfWeek[dayToday];
     const calendar = month_name[month];
     const year = recent.getFullYear();
     let watch_hours = recent.getHours();
