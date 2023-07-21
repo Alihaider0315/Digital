@@ -1,4 +1,12 @@
+*{
+    color: white;
+    font-size: 20vh;;
+}
 div#hours {
     color: white;
     font-size: 20vh;
+}
+
+#days{
+    color: white;
 }
